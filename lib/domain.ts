@@ -30,7 +30,7 @@ export interface DailyRecord {
 export interface SupplementRule {
   key: SupplementKey;
   name: string;
-  group: '早餐' | '午餐' | '晚餐' | '其他补充';
+  group: '早餐' | '午餐' | '晚餐' | '睡前' | '其他补充';
   days: number[];
   schedule: string;
   details: string[];
@@ -40,8 +40,8 @@ export interface SupplementRule {
 }
 
 export const supplementRules: SupplementRule[] = [
-  {"key": "vitaminD", "name": "维生素 D（VD）", "group": "早餐", "days": [0, 1, 2, 3, 4, 5, 6], "schedule": "早餐随餐（随蛋黄）", "details": ["每天"], "takenLabel": "已吃", "skippedLabel": "跳过"},
-  {"key": "vitaminC", "name": "维生素 C（VC）", "group": "早餐", "days": [0, 1, 2, 3, 4, 5, 6], "schedule": "早餐后1颗", "details": ["每天", "新版 VC 剂型"], "takenLabel": "已吃", "skippedLabel": "跳过"},
+  {"key": "vitaminD", "name": "维生素 D（VD）", "group": "早餐", "days": [0, 1, 2, 3, 4, 5, 6], "schedule": "早餐随餐（随蛋黄）", "details": ["每天", "秋冬5000IU每天，不舒服可以加量。"], "takenLabel": "已吃", "skippedLabel": "跳过"},
+  {"key": "vitaminC", "name": "维生素 C（VC）", "group": "早餐", "days": [0, 1, 2, 3, 4, 5, 6], "schedule": "早餐后1颗", "details": ["每天", "新版 VC 剂型", "不舒服可以加量。"], "takenLabel": "已吃", "skippedLabel": "跳过"},
   {"key": "vitaminB", "name": "复合维生素 B（VB）", "group": "午餐", "days": [1, 3, 5], "schedule": "午餐随餐", "details": ["周一 / 周三 / 周五"], "takenLabel": "已吃", "skippedLabel": "跳过"},
   {"key": "nac", "name": "NAC（呼吸道）", "group": "午餐", "days": [0, 1, 2, 3, 4, 5, 6], "schedule": "午餐后1颗", "details": ["每天", "建议秋冬、冬春换季时服用。"], "takenLabel": "已吃", "skippedLabel": "跳过"},
   {"key": "veinSupport", "name": "静脉曲张补剂", "group": "晚餐", "days": [0, 1, 2, 3, 4, 5, 6], "schedule": "晚餐后1颗", "details": ["每天"], "takenLabel": "已吃", "skippedLabel": "跳过"},
@@ -68,11 +68,11 @@ export const supplementRules: SupplementRule[] = [
   },
   {
     key: 'magnesium',
-    group: '其他补充',
+    group: '睡前',
     name: '镁',
     days: [0, 1, 2, 3, 4, 5, 6],
-    schedule: '洗澡前 · 3颗',
-    details: ['每天'],
+    schedule: '洗澡前 · 4-5颗',
+    details: ['每天', '镁平衡促进其他营养吸收（如vd,vc，钙磷钾钠），平衡血压，吃够量可助眠。'],
     takenLabel: '已吃',
     skippedLabel: '跳过',
   },

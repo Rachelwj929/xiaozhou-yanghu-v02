@@ -348,10 +348,12 @@ export function CareApp() {
           </article>
         </section>
 
+        <aside className="life-reminder"><h3>一次生病经历的提醒</h3><p>连续<strong>外食</strong>、身体尚未恢复时，注意放慢节奏。<strong>天气</strong>变化、呼吸道<strong>病毒</strong>流行期间，留意休息与防护。</p></aside>
+
         <section className="section-block">
           <SectionTitle title="今天的补充" />
           <div className="supplement-list">
-            {(['早餐', '午餐', '晚餐', '其他补充'] as const).map((group) => (
+            {(['早餐', '午餐', '晚餐', '睡前', '其他补充'] as const).map((group) => (
             <section className="supplement-group" key={group}><h3 className="meal-heading">{group}</h3>
             {shownSupplements.filter((rule) => rule.group === group).map((rule) => {
               const state = today.supplements?.[rule.key];
@@ -387,8 +389,6 @@ export function CareApp() {
             })}
           </div>
         </section>
-
-        <aside className="life-reminder"><h3>一次生病经历的提醒</h3><p>连续外食、身体尚未恢复时，注意放慢节奏。天气变化、呼吸道病毒流行期间，留意休息与防护。</p></aside>
 
         <section className="section-block mini-record">
           <SectionTitle title="今天 · 小记录" />

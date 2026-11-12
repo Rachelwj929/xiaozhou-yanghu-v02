@@ -253,3 +253,5 @@
 .storage-error { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 55; padding: 14px; border: 1px solid #bd7358; background: #f8e5d9; color: #703e2e; border-radius: 12px; }
 .save-status { display: block; min-height: 20px; margin-bottom: 4px; text-align: right; color: var(--muted-foreground); font-size: 11px; }
 .history-card p { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+.life-reminder strong { padding: 1px 4px; border-radius: 4px; color: #743f22; background: #f1d39d; font-weight: 800; }
