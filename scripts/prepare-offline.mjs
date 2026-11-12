@@ -6,7 +6,12 @@ async function walk(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
   return (await Promise.all(entries.map(async (entry) => entry.isDirectory() ? walk(path.join(dir, entry.name)) : path.join(dir, entry.name)))).flat();
 }
-const files = (await walk(root)).filter((file) => !file.endsWith('/sw.js') && !file.endsWith('.map')).sort();
+// Hosting metadata / dotfiles are not app resources and may be excluded by Pages.
+const files = (await walk(root)).filter((file) => {
+  const relative = path.relative(root, file);
+  return !relative.split(path.sep).some((part) => part.startsWith('.')) &&
+    relative !== 'sw.js' && relative !== '_headers' && !file.endsWith('.map');
+}).sort();
 const hash = createHash('sha256');
 for (const file of files) { hash.update(path.relative(root, file)); hash.update(await readFile(file)); }
 const template = await readFile('public/sw.js', 'utf8');
